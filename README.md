@@ -2,7 +2,7 @@
 
 # README
 
-*BIC.sol* is a fixed supply contract with a fixed supply of 100000000 initially assigned to the owner of the contract.
+*BIC.sol* is a fixed supply contract with a fixed supply of 210000000 initially assigned to the owner of the contract.
 
 The Contract is based on ERC20 Token Standard.
 
