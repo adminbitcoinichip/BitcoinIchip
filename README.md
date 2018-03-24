@@ -44,7 +44,7 @@ For example, assume the BIC contract has two token holders:
 
 The **balanceOf()** will return following values:
 * balanceOf(0x111) will return 50
-* balanceOf(0x111) will return 100
+* balanceOf(0x222) will return 100
 
 
 ### Transfer Token Balance
