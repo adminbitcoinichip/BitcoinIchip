@@ -1,4 +1,4 @@
-pragma solidity 0.4.21;
+pragma solidity 0.4.23;
 
 /**
  * @title SafeMath
@@ -55,7 +55,7 @@ contract BitcoinIchip is ERC20
      // Owner of this contract
      address public owner;
      
-  // Balances for each account
+    // Balances for each account
      mapping(address => uint256) balances;
   
      // Owner of account approves the transfer of an amount to another account
@@ -68,21 +68,21 @@ contract BitcoinIchip is ERC20
      }
   
      // Constructor
-     function BitcoinIchip () public {
-         owner = msg.sender;
-         balances[owner] = _totalSupply;
-       emit Transfer(0, owner, _totalSupply);
+    constructor() public {
+        owner = msg.sender;
+        balances[owner] = _totalSupply;
+        emit Transfer(0, owner, _totalSupply);
      }
    
    //Burning tokens
     function burntokens(uint256 tokens) external onlyOwner {
-         require( tokens <= balances[owner]);
-         _totalSupply = (_totalSupply).sub(tokens);
-         balances[owner] = balances[owner].sub(tokens);
-          emit Transfer(owner, 0, tokens);
+        require( tokens <= balances[owner]);
+        _totalSupply = (_totalSupply).sub(tokens);
+        balances[owner] = balances[owner].sub(tokens);
+        emit Transfer(owner, 0, tokens);
      }
   
-    // what is the total supply of the each tokens
+    // what is the total supply of the ech tokens
      function totalSupply() public view returns (uint256 total_Supply) {
          total_Supply = _totalSupply;
      }
@@ -97,7 +97,7 @@ contract BitcoinIchip is ERC20
         require(balances[msg.sender] >= _amount && _amount >= 0);
         balances[msg.sender] = (balances[msg.sender]).sub(_amount);
         balances[_to] = (balances[_to]).add(_amount);
-     emit Transfer(msg.sender, _to, _amount);
+        emit Transfer(msg.sender, _to, _amount);
              return true;
          }
          
@@ -113,7 +113,7 @@ contract BitcoinIchip is ERC20
      balances[_from] = (balances[_from]).sub(_amount);
      allowed[_from][msg.sender] = (allowed[_from][msg.sender]).sub(_amount);
      balances[_to] = (balances[_to]).add(_amount);
-    emit Transfer(_from, _to, _amount);
+     emit Transfer(_from, _to, _amount);
      return true;
          }
  
@@ -122,7 +122,7 @@ contract BitcoinIchip is ERC20
      function approve(address _spender, uint256 _amount)public returns (bool ok) {
          require( _spender != 0x0);
          allowed[msg.sender][_spender] = _amount;
-      emit Approval(msg.sender, _spender, _amount);
+         emit Approval(msg.sender, _spender, _amount);
          return true;
      }
   
@@ -138,9 +138,6 @@ contract BitcoinIchip is ERC20
 	    balances[newOwner] = (balances[newOwner]).add(balances[owner]);
 	    balances[owner] = 0;
 	    owner = newOwner;
-	 emit Transfer(msg.sender, newOwner, balances[newOwner]);
+	    emit Transfer(msg.sender, newOwner, balances[newOwner]);
 	}
-	
-  
-
 }

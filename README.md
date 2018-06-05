@@ -6,7 +6,9 @@
 
 The Contract is based on ERC20 Token Standard.
 
-The code is written for Solidity version 0.4.21
+The code is written for Solidity version 0.4.23
+
+SmartContract Address: **0xe8710C8C9D5fad016ce66E8a93d36a0fd7F39024**
 
 ## What is this repository for?
 * *Bitcoin Ichip* ICO contract.
